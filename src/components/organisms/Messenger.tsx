@@ -1,3 +1,12 @@
+const Messenger = () => {
+    return (
+        <div>messenger</div>
+    )
+}
+
+export default Messenger
+
+/*
 import MessageCard from "../atoms/MessageCard";
 import useStore from "../../store";
 import {IChatThread, useChatThreadQuery} from "../../services/ChatThreads";
@@ -29,9 +38,9 @@ const Messenger = () => {
                            placeholder="Search Message Threads..." required/>
                 </div>
 
-                {/*<div className='flex items-center justify-between'>*/}
+                {/!*<div className='flex items-center justify-between'>*!/}
                     <h3 className='font-medium text-xl text-black'>Messages</h3>
-                    {/*<span className='text-xs flex justify-center items-center gap-1 text-[#0477fd] font-medium'>
+                    {/!*<span className='text-xs flex justify-center items-center gap-1 text-[#0477fd] font-medium'>
                         <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-square-plus"
                              width="16" height="16" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#0477fd" fill="none"
                              strokeLinecap="round" strokeLinejoin="round">
@@ -40,8 +49,8 @@ const Messenger = () => {
                           <line x1="9" y1="12" x2="15" y2="12"/>
                           <line x1="12" y1="9" x2="12" y2="15"/>
                         </svg>
-                        New message</span>*/}
-                {/*</div>*/}
+                        New message</span>*!/}
+                {/!*</div>*!/}
 
                 <div
                     className='flex gap-4 bg-gray-100 px-2 py-1.5 text-sm bg-[#f7f7f7] font-medium rounded-3xl justify-between'>
@@ -73,4 +82,4 @@ const Messenger = () => {
     )
 }
 
-export default Messenger
+export default Messenger*/

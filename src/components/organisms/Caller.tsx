@@ -18,9 +18,9 @@ const Caller = () => {
             </div>*/}
 
             <div className="flex flex-col gap-4 px-4">
-                <CallCard active joined name='Friendly' text='Sara is talking...'/>
+                {/*<CallCard active joined name='Friendly' text='Sara is talking...'/>
                 <CallCard name='Product designers' text='Raya is talking...'/>
-                <CallCard name='Dev Team' text='Jack is talking...'/>
+                <CallCard name='Dev Team' text='Jack is talking...'/>*/}
             </div>
         </div>
     )
