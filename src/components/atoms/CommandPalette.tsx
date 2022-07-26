@@ -1,5 +1,5 @@
-import {Dialog, Transition, Combobox} from '@headlessui/react'
-import {Fragment, useEffect, useState} from 'react'
+import {Combobox, Dialog, Transition} from '@headlessui/react'
+import {Fragment, useState} from 'react'
 
 const CommandPalette = () => {
     let [isOpen, setIsOpen] = useState(false)

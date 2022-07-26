@@ -1,95 +1,5 @@
 import create from 'zustand'
-
-const thread = {
-    "_id": "1658572470581-01",
-    "group_id": "ZPH1",
-    "division_id": "DIV001",
-    "is_active": true,
-    "role": "CSR",
-    "category": "MY_CHATS",
-    "total_unread_message": 3,
-    "contributers": [{
-        "member_id": "1658572470581-sanjmgr",
-        "username": "sanjmgr",
-        "name": "Sanjay Gharti",
-        "role": "member",
-        "created_at": "2022-02-09T08:46:35.109+00:00",
-        "avatar": "https://images.unsplash.com/photo-1624561172888-ac93c696e10c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1978&q=80"
-    },
-        {
-            "member_id": "1658572470581-dhiraj",
-            "username": "dhiraj",
-            "name": "Dhiraj Tamang",
-            "role": "csr",
-            "is_primary_csr": true,
-            "created_at": "2022-02-09T08:46:35.109+00:00",
-            "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
-        },
-        {
-            "member_id": "1658572470581-rajan",
-            "username": "rajan",
-            "name": "Rajan Twanabashu",
-            "role": "csr",
-            "is_primary_csr": false,
-            "created_at": "2022-02-09T08:46:35.109+00:00",
-            "avatar": "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=761&q=80"
-        }
-    ],
-    "follow_ups": [{
-        "member_id": "1658572470581-rajan",
-        "username": "rajan",
-        "name": "Rajan Twanabashu",
-        "role": "csr",
-        "created_at": "2022-02-09T08:46:35.109+00:00",
-        "avatar": "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=761&q=80"
-    }],
-    "editors": [{
-        "member_id": "1658572470581-sanjmgr",
-        "username": "sanjmgr",
-        "name": "Sanjay Gharti",
-        "role": "member",
-        "avatar": "https://images.unsplash.com/photo-1624561172888-ac93c696e10c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1978&q=80"
-    },
-        {
-            "member_id": "1658572470581-dhiraj",
-            "username": "dhiraj",
-            "name": "Dhiraj Tamang",
-            "role": "csr",
-            "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
-        }
-    ],
-    "message": {
-        "_id": "62037f6b7243ce3d42ef616a",
-        "sender": {
-            "member_id": "1658572470581-sanjmgr",
-            "username": "sanjmgr",
-            "name": "Sanjay Gharti",
-            "role": "member",
-            "text": "hello, how are you?",
-            "created_at": "2022-02-09T08:46:35.109+00:00",
-            "avatar": "https://images.unsplash.com/photo-1624561172888-ac93c696e10c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1978&q=80"
-        },
-        "receivers": [{
-            "member_id": "1658572470581-dhiraj",
-            "username": "dhiraj",
-            "name": "Dhiraj Tamang",
-            "role": "csr",
-            "created_at": "2022-02-09T08:46:35.109+00:00",
-            "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
-            "is_seen": true
-        },
-            {
-                "member_id": "1658572470581-rajan",
-                "username": "rajan",
-                "name": "Rajan Twanabashu",
-                "role": "csr",
-                "created_at": "2022-02-09T08:46:35.109+00:00",
-                "avatar": "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=761&q=80",
-                "is_seen": false
-            }
-        ]
-    }
-}
+import {IThread} from "./services/ChatThreads";
 
 export type Tab = "ALL_CHATS" | "MY_CHATS" | "STARRED" | "UNREAD"
 
@@ -98,8 +8,8 @@ interface IStore {
     setDefaultChatThread: (threadIdToRemove: number[]) => void
     activeThreadTab: Tab
     setActiveThreadTab: (threadTab: Tab) => void
-    activeMessageThreadId: number | undefined
-    setActiveMessageThreadId: (threadId: number) => void
+    activeMessageThreadId: number | string | undefined
+    setActiveMessageThreadId: (threadId: number | string) => void
     searchQuery: string
     setSearchQuery: (searchQuery: string) => void
     threadReadable: string
@@ -109,8 +19,10 @@ interface IStore {
     setFilterOptionsStatus: (filter: Filter) => void,
     isBulkRemove: boolean,
     setIsBulkRemove: () => void
-    threadIdToRemove: number[],
-    setThreadIdToRemove: (id: number) => void
+    threadIdToRemove: (number | string)[],
+    setThreadIdToRemove: (id: number | string) => void
+    threads: IThread[]
+    setThreads: (thread: IThread[]) => void
 }
 
 export interface IChatThread {
@@ -288,7 +200,7 @@ const useStore = create<IStore>((set) => ({
     activeThreadTab: "ALL_CHATS",
     setActiveThreadTab: (threadTab: Tab) => set((state: IStore) => ({activeThreadTab: threadTab})),
     activeMessageThreadId: undefined,
-    setActiveMessageThreadId: (threadId: number) => set((state: IStore) => ({activeMessageThreadId: threadId})),
+    setActiveMessageThreadId: (threadId: number | string) => set((state: IStore) => ({activeMessageThreadId: threadId})),
     searchQuery: "",
     setSearchQuery: (searchQuery: string) => set((state: IStore) => ({searchQuery})),
     threadReadable: "",
@@ -305,10 +217,12 @@ const useStore = create<IStore>((set) => ({
     isBulkRemove: false,
     setIsBulkRemove: () => set((state: IStore) => ({isBulkRemove: !state.isBulkRemove})),
     threadIdToRemove: [],
-    setThreadIdToRemove: (id: number) => set((state: IStore) => ({
+    setThreadIdToRemove: (id: number | string) => set((state: IStore) => ({
         ...state,
         threadIdToRemove: [...state.threadIdToRemove, id]
-    }))
+    })),
+    threads: [],
+    setThreads: (thread: IThread[]) => set((state: IStore) => ({threads: thread}))
 }))
 
 export default useStore
