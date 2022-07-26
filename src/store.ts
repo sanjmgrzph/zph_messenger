@@ -4,8 +4,6 @@ import {IThread} from "./services/ChatThreads";
 export type Tab = "ALL_CHATS" | "MY_CHATS" | "STARRED" | "UNREAD"
 
 interface IStore {
-    defaultChatThread: IChatThread[]
-    setDefaultChatThread: (threadIdToRemove: number[]) => void
     activeThreadTab: Tab
     setActiveThreadTab: (threadTab: Tab) => void
     activeMessageThreadId: number | string | undefined
@@ -192,11 +190,6 @@ const filterOptions: Filter[] = [
 ]
 
 const useStore = create<IStore>((set) => ({
-    defaultChatThread,
-    setDefaultChatThread: (threadIdToRemove: number[]) => set((state: IStore) => ({
-        ...state,
-        defaultChatThread: defaultChatThread.filter(filter => !threadIdToRemove.includes(filter.id))
-    })),
     activeThreadTab: "ALL_CHATS",
     setActiveThreadTab: (threadTab: Tab) => set((state: IStore) => ({activeThreadTab: threadTab})),
     activeMessageThreadId: undefined,

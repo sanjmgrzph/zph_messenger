@@ -1,14 +1,8 @@
 import {TrashIcon} from "@heroicons/react/outline";
-import useStore from "../../store";
-import CommandPalette from "./CommandPalette";
 
 const classNames = (...classes: string[]) => classes.filter(Boolean).join(' ')
 
 export default function ThreadHeader() {
-    const [filterOptions, setFilterOptionsStatus, setIsBulkRemove, isBulkRemove, threadIdToRemove, setDefaultChatThread, defaultChatThread] =
-        useStore(state => [state.filterOptions, state.setFilterOptionsStatus, state.setIsBulkRemove,
-            state.isBulkRemove, state.threadIdToRemove, state.setDefaultChatThread, state.defaultChatThread])
-
     return (
         <div className="relative z-10 flex items-baseline justify-between">
             <h1 className="text-xl font-bold tracking-tight text-gray-900">Messages</h1>
@@ -63,15 +57,17 @@ export default function ThreadHeader() {
                 {/*<CommandPalette />*/}
 
                 <button type="button" className="p-2 -m-2 ml-5 sm:ml-7 text-gray-400 hover:text-gray-500"
-                        onClick={() => setIsBulkRemove()}>
+                        onClick={() => {
+                        }}>
                     <span className="sr-only">Bulk Remove</span>
                     <TrashIcon className="w-5 h-5" aria-hidden="true"/>
                 </button>
 
                 {
-                    threadIdToRemove.length > 0 && (
+                    [].length > 0 && (
                         <button type="button" className="p-2 -m-2 ml-5 sm:ml-7 text-gray-400 hover:text-gray-500"
-                                onClick={() => setDefaultChatThread(threadIdToRemove)}>
+                                onClick={() => {
+                                }}>
                             <span className="sr-only">Remove</span>
                             <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-radioactive"
                                  width="24" height="24" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#999999" fill="none"
