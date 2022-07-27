@@ -8,13 +8,11 @@ interface IProps {
 
 const Avatar = ({avatar = defaultUrl, height = 'h-12', width = 'w-12'}: IProps) => {
     return (
-        <div>
-            <div
-                className={`bg-gradient-to-tr from-emerald-400 via-fuchsia-600 to-violet-600 p-0.5 rounded-full`}>
-                <div className='bg-white p-0.5 rounded-full'>
-                    <img className={`rounded-full h-10 w-10`}
-                         src={avatar}/>
-                </div>
+        <div
+            className={`bg-gradient-to-tr from-emerald-400 via-fuchsia-600 to-violet-600 p-0.5 rounded-full h-12 w-12`}>
+            <div className='bg-white p-0.5 rounded-full'>
+                <img className={`rounded-full h-10 w-10`}
+                     src={avatar}/>
             </div>
         </div>
 

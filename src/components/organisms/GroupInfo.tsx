@@ -1,7 +1,11 @@
 import AvatarGroupStacked from "../atoms/AvatarGroupStacked";
 import Avatar from "../atoms/Avatar";
+import useStore from "../../store";
 
 const GroupInfo = () => {
+
+    const contributor = useStore(state => state.contributorAvatar)
+
     return (
         <div className='bg-white w-[20%] flex flex-col gap-4 py-8 px-6 shadow-sm'>
             <div className="flex justify-between items-center">
@@ -73,7 +77,7 @@ const GroupInfo = () => {
 
             <div className='flex justify-between py-4 items-center'>
                 <h3 className='text-gray-500 text-base font-medium'>Members</h3>
-                <AvatarGroupStacked/>
+                <AvatarGroupStacked size={8} contributor={contributor}/>
             </div>
 
             <hr/>
@@ -108,6 +112,7 @@ const GroupInfo = () => {
 
         </div>
     )
+
 }
 
 export default GroupInfo

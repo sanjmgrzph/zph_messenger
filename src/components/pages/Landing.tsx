@@ -5,8 +5,8 @@ import Threads from "../organisms/Threads";
 
 const Landing = () => {
     return (
-        <div className='flex'>
-            <Menu/>
+        <div className='flex mx-auto justify-center divide-x-2 h-[100vh]'>
+            {/*<Menu/>*/}
             <Threads/>
             <Conversations/>
             <GroupInfo/>
