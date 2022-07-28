@@ -39,6 +39,7 @@ const Threads = () => {
         }
     ]
 
+    /*TODO: once threads delete/remove, data should reflect for all the category, which hasn't implemented yet, once we go with endpoints consumption, we will achieve that*/
     threads = searchQuery.length ?
         threads?.filter(item => item.message.name.toLowerCase().includes(searchQuery.toLowerCase()))
         : threads

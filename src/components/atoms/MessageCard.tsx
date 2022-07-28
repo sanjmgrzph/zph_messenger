@@ -21,7 +21,8 @@ const MessageCard = ({
     useEffect(() => console.log(threadIdToRemove), [threadIdToRemove])
 
     return (
-        <div className="flex justify-between items-center gap-2 cursor-pointer focus:shadow-md" onClick={() => console.log({_id})}>
+        <div className="flex justify-between items-center gap-2 cursor-pointer focus:shadow-md"
+             onClick={() => setActiveMessageThreadId(_id)}>
             {
                 isBulkRemove && (
                     <div>
@@ -37,7 +38,8 @@ const MessageCard = ({
                 )
             }
 
-            <div className="bg-[#e4e6eb] flex items-center px-3 h-16 w-full rounded-lg justify-between">
+            <div
+                className={`shadow-sm hover:bg-[#e4e6eb] ${activeMessageThreadId === _id && 'bg-[#e4e6eb]'} flex items-center px-3 h-16 w-full rounded-lg justify-between`}>
                 <div className="flex items-center">
                     <Avatar avatar={message.avatar}/>
                     <div className="pl-2">
